@@ -1,7 +1,7 @@
 import {initialFavoritesState} from './favorites.state';
 import {on} from '@ngrx/store';
 import {FavoritesActions} from './favorites.actions';
-import {createRehydrateReducer} from '../../cart/store/create-rehydrate.reducer';
+import {createRehydrateReducer} from '../../../core/store/utils/create-rehydrate.reducer';
 
 export const favoritesReducer = createRehydrateReducer(
   'favorites', // localStorage key
