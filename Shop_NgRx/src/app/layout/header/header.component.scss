@@ -1,0 +1,86 @@
+header {
+  padding-top: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &.logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 2rem;
+        margin-bottom: .4rem;
+      }
+
+      &.nav-link {
+        padding: 0.5rem 0.8rem 1rem;
+        transition: 0.1s;
+        font-size: 16px;
+
+        &:hover {
+          background-color: #fafafa;
+        }
+
+        &.active {
+          border-bottom: 1px solid;
+          padding-bottom: .9rem;
+          font-weight: 500;
+
+          &:hover {
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+
+    .icon-links {
+      margin-left: auto;
+      display: flex;
+      gap: 0.5rem;
+
+      .favourite-link,
+      .cart-link {
+        aspect-ratio: 1/1;
+        padding: .4rem .5rem;
+        border-radius: 4px;
+        transition: 0.1s;
+        position: relative;
+
+        .my-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        span {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 11px;
+          min-width: 16px;
+          height: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 300px;
+          padding: .2rem;
+          background-color: #000;
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: #fafafa;
+        }
+      }
+    }
+  }
+}

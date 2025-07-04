@@ -1,0 +1,47 @@
+<header class="container">
+  <nav>
+    <a class="logo" routerLink="/">LOGO</a>
+
+    <a class="nav-link"
+       routerLink="/"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}"
+       ariaCurrentWhenActive="page">
+      Home
+    </a>
+
+    <a class="nav-link"
+       routerLink="/products"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}"
+       ariaCurrentWhenActive="page">
+      Shop
+    </a>
+
+    <div class="icon-links">
+      <a class="favourite-link"
+         routerLink="/favorites"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         ariaCurrentWhenActive="page">
+        <lucide-angular [img]="Heart" [size]="24" class="my-icon" />
+
+        @if (favoritesCount > 0) {
+          <span>{{ favoritesCount }}</span>
+        }
+      </a>
+
+      <a class="cart-link"
+         routerLink="/cart"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         ariaCurrentWhenActive="page">
+        <lucide-angular [img]="ShoppingBag" [size]="24" class="my-icon" />
+
+        @if (cartTotalQuantities > 0) {
+          <span>{{ cartTotalQuantities }}</span>
+        }
+      </a>
+    </div>
+  </nav>
+</header>
