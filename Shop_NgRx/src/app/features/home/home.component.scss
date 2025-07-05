@@ -1,0 +1,32 @@
+main {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 0.1rem;
+    text-decoration: none;
+    background-color: black;
+    font-size: 14px;
+    transition: .3s;
+    border-radius: .3rem;
+    padding: 0.7rem 0.7rem 0.7rem 1rem;
+    color: #fff;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8)
+    }
+
+    .my-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
