@@ -4,12 +4,15 @@ import {RouterLink} from '@angular/router';
 import {Product} from '../../shared/models/product.model';
 import {selectCart} from '../cart/store/cart.selectors';
 import {Store} from '@ngrx/store';
-import {ProductService} from './product.service';
+import {ProductService} from './services/product.service';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductsSkeletonComponent} from '../../shared/ui/products-skeleton/products-skeleton.component';
 import {selectIsFavorite} from '../favorites/favorites-store/favorites.selectors';
 import {FavoritesActions} from '../favorites/favorites-store/favorites.actions';
 import {Subject, take, takeUntil} from 'rxjs';
+import {selectAllProducts, selectProductLoading} from './product-store/product.selector';
+import {ProductActions} from './product-store/product.action';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -17,18 +20,26 @@ import {Subject, take, takeUntil} from 'rxjs';
     LucideAngularModule,
     RouterLink,
     ProductListComponent,
-    ProductsSkeletonComponent
+    ProductsSkeletonComponent,
+    AsyncPipe
   ],
   templateUrl: './products.component.html',
   standalone: true,
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit,OnDestroy{
+  private store = inject(Store);
 
   readonly ShoppingBag = ShoppingBag;
   protected readonly Heart = Heart;
+
+
+  products$ = this.store.select(selectAllProducts);
+  loading$ = this.store.select(selectProductLoading);
+
   data = signal<Product[] | []>([]);
   isLoading = signal<boolean>(true);
+
   favoriteToastMessage = signal<string>('');
   cartToastShow = signal<boolean>(false);
   favoriteToastShow = signal<boolean>(false);
@@ -39,14 +50,11 @@ export class ProductsComponent implements OnInit,OnDestroy{
 
 
 
-  constructor( private store: Store) { }
+  constructor() { }
 
   ngOnInit() {
 
-    this.productsService.getProducts().subscribe(buffer => {
-      this.data.set(buffer);
-      this.isLoading.set(false);
-    });
+    this.store.dispatch(ProductActions.loadProducts());
 
     // Cart toast logic
     this.store.select(selectCart).subscribe(state => {

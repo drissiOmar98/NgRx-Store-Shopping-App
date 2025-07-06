@@ -28,10 +28,11 @@
     @if (data?.image) {
       <app-image-loader
         class="favorite-product-img"
-        [src]="data.image"
-        [alt]="data.title ?? ''" />
+        [src]="data?.image ?? ''"
+        [alt]="data?.title ?? ''" />
     }
   </div>
+
 
   <!-- Product info -->
   <div class="card-title">{{ data?.title }}</div>
