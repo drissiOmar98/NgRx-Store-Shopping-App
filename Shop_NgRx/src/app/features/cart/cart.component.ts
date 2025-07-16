@@ -38,6 +38,17 @@ export class CartComponent {
 
   async checkout() {
     this.isLoading = true;
-  }
 
+    this.http.post<{ url: string }>(`http://localhost:3000/api/payment/create-checkout-session`, {
+      items: this.data().items.map(item => ({
+        name: item.title,
+        description: item.description,
+        images: [item.image],
+        price: item.price,
+        quantity: item.quantity
+      }))
+    }).subscribe(async (session) => {
+      window.location.href = session.url
+    })
+  }
 }
