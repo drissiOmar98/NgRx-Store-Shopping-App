@@ -1,11 +1,14 @@
 # 🛍️ NgRx E-Commerce Store
 
-A modern **E-Commerce Platform** built with Angular 19 and powered by NgRx for robust state management, featuring real-time cart updates, favorites system, and product catalog.
+A modern **E-Commerce Platform** built with Angular 19 and powered by NgRx for robust state management, featuring real-time cart updates, favorites system, and product catalog all seamlessly integrated with a Node.js and Express backend that handles secure Stripe-based checkout processing.
+
 <p align="center">
   <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white">
   <img src="https://img.shields.io/badge/NgRx-BA55D3?style=for-the-badge&logo=ngrx&logoColor=white">
   <img src="https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=rxjs&logoColor=white">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white">
 </p>
 
 <p align="center">
@@ -19,6 +22,7 @@ A modern **E-Commerce Platform** built with Angular 19 and powered by NgRx for r
 - ❤️ **Favorites System** with persistent storage
 - 🛒 **Shopping Cart** with quantity adjustments
 - 💰 **Real-time Price Calculations**
+- 💳 **Stripe Checkout Integration**
 
 ### ⚡ NgRx State Management
 - **🏪 Three Feature Stores**:
@@ -56,6 +60,8 @@ A modern **E-Commerce Platform** built with Angular 19 and powered by NgRx for r
 | <img src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png" width="20"/> TypeScript | Type Safety |
 | <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Font_Awesome_logomark_blue.svg" width="20"/> Font Awesome Icons | UI Icons |
 | <img src="https://fakeapi.platzi.com/favicon.png" width="20"/> FakeStoreAPI | Product Data |
+| <img src="https://logo-marque.com/wp-content/uploads/2021/03/Stripe-Logo.png" width="40"/> | Payment Gateway |
+
 
 ## 📂 Project Structure
 
@@ -78,3 +84,5 @@ src/
 │   ├── pipes/                 # Custom pipes
 │   └── ui/                    # Reusable components (buttons, cards)
 └── assets/                    # Static files (images, icons)
+
+
